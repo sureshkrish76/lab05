@@ -78,16 +78,24 @@ function sumArray(sumArr) { //eslint-disable-line
     var arr = [];
     var sumArray = 0;
     var commaSep = ','
+    var sumarraymsg = "";
  
- for (var i=0;i<testArray.length;i++) {
-      sumArray=sumArray+testArray[i];
-   
- }
- arr[0] = sumArray;
- arr[1] = testArray[0]+commaSep+testArray[1]+commaSep+testArray[2]+' was passed in as an array of numbers, and '+sumArray+' is their sum.';
- return arr;
+ for (var i=0;i<sumArr.length;i++) {
+      sumArray=sumArray+sumArr[i];
+      if(i===0 || i=== sumArr.length) {
+        sumarraymsg = sumarraymsg+ sumArr[i];
+    } else {
+        sumarraymsg = sumarraymsg+ commaSep+sumArr[i];
+    } 
 }
+ arr[0] = sumArray;
+ arr[1] = sumarraymsg+' was passed in as an array of numbers, and '+sumArray+' is their sum.';
+ //arr[1] ='test';
+ console.log(arr[0]);
+ console.log(arr[1]);
+ return arr;
 
+}
 // Here is the test for sumArray(); uncomment it to run it
 
 testSumArray(testArray);
@@ -105,15 +113,21 @@ Test this function by hand in the console to get it working, and when you think 
 function multiplyArray(multArr) { //eslint-disable-line
     var arr = [];
     var mutiplyArray = 1;
-    var commaSep = ','
+    var commaSep = ',';
+    var multiplyArrayMsg= 'The numbers ';
+    
 
-    for (var i=0;i<testArray.length;i++) {
-        mutiplyArray=mutiplyArray*testArray[i];
-     
+    for (var i=0;i<multArr.length;i++) {
+        mutiplyArray=mutiplyArray*multArr[i];
+        if(i===0 || i=== multArr.length) {
+            multiplyArrayMsg = multiplyArrayMsg+  multArr[i];
+        } else {
+            multiplyArrayMsg = multiplyArrayMsg+ commaSep+multArr[i];
+        }
    }
    arr[0] = mutiplyArray;
-   arr[1] = 'The numbers '+testArray[0]+commaSep+testArray[1]+commaSep+testArray[2]+' have a product of '+mutiplyArray+'.';
-      return arr;
+   arr[1] = multiplyArrayMsg+' have a product of '+mutiplyArray+'.';
+    return arr;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
@@ -139,21 +153,21 @@ var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
     var arr = [];
     var mutiplyArrayUpd = 1;
-    var multiplyArrayMsg= 'The numbers '
-    var commaSep = ','
+    var multiplyArrayMsg= 'The numbers ';
+    var commaSep = ',';
     
-    for (var i=0;i<testDynamicArray.length;i++) {
-        mutiplyArrayUpd=mutiplyArrayUpd*testDynamicArray[i];
-        if(i===0 || i=== testDynamicArray.length) {
-            multiplyArrayMsg = multiplyArrayMsg+  testDynamicArray[i];
+    for (var i=0;i<dynamicArray.length;i++) {
+        mutiplyArrayUpd=mutiplyArrayUpd*dynamicArray[i];
+        if(i===0 || i=== dynamicArray.length) {
+            multiplyArrayMsg = multiplyArrayMsg+  dynamicArray[i];
         } else {
-            multiplyArrayMsg = multiplyArrayMsg+ commaSep+testDynamicArray[i];
+            multiplyArrayMsg = multiplyArrayMsg+ commaSep+dynamicArray[i];
         }
           
         }
    arr[0] = mutiplyArrayUpd;
    arr[1] = multiplyArrayMsg+' have a product of '+mutiplyArrayUpd+'.';
-     return arr;
+    return arr;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
